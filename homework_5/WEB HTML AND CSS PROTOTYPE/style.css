@@ -1,0 +1,184 @@
+
+/*HEADER*/
+
+h1 {
+	font-size: 50px;
+}
+
+header {
+	text-align: center;
+	padding: 20px;
+	background-color: #211e2f;
+	color: white;
+	font-family: 'Roboto Slab', serif;
+}
+
+header a {
+	color: gold;
+	text-decoration: none;
+}
+
+header a:hover {
+	color: white;
+}
+
+/*CART AND BACK BUTTONS*/
+
+#cart {
+	text-align: right;
+	transform: translate(-30px, 30%);
+	font-size: 20px;
+}
+
+#back {
+	text-align: left;
+	float:left;
+	transform: translate(30px);
+}
+
+.separator {
+	color: grey;
+  	margin: 0 10px;
+}
+
+/*WELCOME MESSAGE TEXT*/
+
+#hello {
+	font-family: 'Roboto Slab', sans-serif;
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+	padding-top: 50px;
+	color: grey;
+}
+
+/*SHOPPING*/
+
+#shopping-categories {
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	text-align: center;
+	margin: 0 auto;
+	width: 40%;
+	color: grey;
+	padding-top: 90px;
+}
+
+/*shopping links (just bed pillows in this case) are black and turn gold when hovered over*/
+
+#shopping-categories a {
+	color: black;
+	text-decoration: none;
+}
+
+#shopping-categories a:hover {
+	color: gold;
+	text-decoration: none;
+}
+
+/*general page formatting*/
+
+#contents {
+	font-family: 'Roboto Slab', serif;
+	margin: 0 auto;
+	width: 60%;
+	padding-top: 10px;
+	text-decoration: none;
+}
+
+.centered-content {
+	text-align: center;
+	color: grey;
+}
+
+.centered-content a {
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	font-size: 80;
+}
+
+.centered-content a:hover {
+	color: gold;
+}
+
+.content {
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: #eeeeee;
+	border: 1px solid #cccccc;
+	text-align: left;
+}
+
+/*add to cart button on product page. text link is gold and turns dark when hovered over*/
+
+#addtocart {
+	text-align: center;
+	font-size: 30px;
+}
+
+#addtocart a {
+	color: gold;
+}
+
+#addtocart a:hover {
+	color: #211e2f;
+}
+
+/*home page text overlaying image centered. text link is white and turns gold when hovered over*/
+
+#home-page {
+	font-family: 'Roboto Slab', serif;
+	margin: 0 auto;
+	width: 100%;
+	padding-top: 20px;
+	text-decoration: none;
+}
+
+.image-text {
+	position: relative;
+	padding-top: 50px;
+}
+
+.text-block a {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: white;
+	font-size: 55px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.text-block a:hover {
+	color: gold;
+}
+
+/*email and search inputs are centered*/
+
+#inputs {
+    text-align: center;
+    padding: 40px;
+}​
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+
+.column {
+  float: right;
+  width: 30%;
+  padding: 10px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
