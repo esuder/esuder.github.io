@@ -58,7 +58,7 @@ function openPopup() {
 			localStorage.setItem('cartCount', newCartValue);
 			console.log(localStorage.getItem('cartCount'));
 			document.getElementById("numberOfCartItems").innerHTML
-			= "Items: "+localStorage.getItem('cartCount');
+			= localStorage.getItem('cartCount');
 
 	} else if(!ischecked_color & !ischecked_filling) {
 		// if neither filling radio and color radio is checked, alert the user
