@@ -5,11 +5,24 @@ function goBack() {
 }
 
 //CHANGE COLOR OF PREVIEW IMAGE FROM RADIO INPUT
-var fillingResult = document.getElementsByName('filling'); 
-var colorResult = document.getElementsByName('color'); 
+var fillingResults = document.getElementsByName('filling'); 
+var colorResults = document.getElementsByName('color'); 
 
 function changeColor(){
-	console.log("peepee");
+	for ( var i = 0; i < colorResults.length; i++) {
+    	if(colorResults[i].checked) {
+    	console.log(colorResults[i].value);
+        	if (colorResults[i].value === "After School Special"){
+		console.log("afterschool");
+			} else if (colorResults[i].value === "Morning Haze"){
+		console.log("morninghaze");
+			} else if (colorResults[i].value === "Cozy Denim"){
+		console.log("cozeee");
+			} else if (colorResults[i].value === "Rainy Day"){
+		console.log("rainyyy");
+			}
+		}
+	}
 }
 
 //ADD TO CART POPUP
@@ -19,15 +32,15 @@ var ischecked_color = false;
 
 function openPopup() {
 	// check if filling radio is checked
-	for ( var i = 0; i < fillingResult.length; i++) {
-    	if(fillingResult[i].checked) {
+	for ( var i = 0; i < fillingResults.length; i++) {
+    	if(fillingResults[i].checked) {
         	ischecked_filling = true;
 			break;
    		 }
 	}
 	// check if color radio is checked
-	for ( var i = 0; i < colorResult.length; i++) {
-    	if(colorResult[i].checked) {
+	for ( var i = 0; i < colorResults.length; i++) {
+    	if(colorResults[i].checked) {
         	ischecked_color = true;
 			break;
    		 }
@@ -48,17 +61,17 @@ function openPopup() {
     	alert("Please choose filling.");
 	}
 
-	for(i = 0; i < colorResult.length; i++) { 
-		if(colorResult[i].checked) {
-		document.getElementById("colorresult").innerHTML
-			= "Color: "+colorResult[i].value;
+	for(i = 0; i < colorResults.length; i++) { 
+		if(colorResults[i].checked) {
+		document.getElementById("colorResults").innerHTML
+			= "Color: "+colorResults[i].value;
 		}
 	}
 
-	for(i = 0; i < fillingResult.length; i++) { 
-		if(fillingResult[i].checked){
-		document.getElementById("fillingresult").innerHTML
-			= "Filling: "+fillingResult[i].value;
+	for(i = 0; i < fillingResults.length; i++) { 
+		if(fillingResults[i].checked){
+		document.getElementById("fillingResults").innerHTML
+			= "Filling: "+fillingResults[i].value;
 		}
 	}
 	
