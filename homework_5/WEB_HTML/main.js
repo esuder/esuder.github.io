@@ -45,7 +45,7 @@ function openPopup() {
 			break;
    		 }
 	}
-	
+
 	// if filling radio and color radio is checked, open the popup
 	if(ischecked_color & ischecked_filling) {
       	  	modal = document.getElementById("myModal");
@@ -63,14 +63,14 @@ function openPopup() {
 
 	for(i = 0; i < colorResults.length; i++) { 
 		if(colorResults[i].checked) {
-		document.getElementById("colorResults").innerHTML
+		document.getElementById("colorresult").innerHTML
 			= "Color: "+colorResults[i].value;
 		}
 	}
 
 	for(i = 0; i < fillingResults.length; i++) { 
 		if(fillingResults[i].checked){
-		document.getElementById("fillingResults").innerHTML
+		document.getElementById("fillingresult").innerHTML
 			= "Filling: "+fillingResults[i].value;
 		}
 	}
