@@ -30,6 +30,8 @@ function changeColor(){
 var ischecked_filling = false;
 var ischecked_color = false;
 
+localStorage.setItem('cartCount', 0);
+
 function openPopup() {
 	// check if filling radio is checked
 	for ( var i = 0; i < fillingResults.length; i++) {
@@ -46,10 +48,18 @@ function openPopup() {
    		 }
 	}
 
+
 	// if filling radio and color radio is checked, open the popup
 	if(ischecked_color & ischecked_filling) {
       	  	modal = document.getElementById("myModal");
 			modal.style.display = "block";
+			//convert to number. Add 1 to number every time Add to Cart is clicked
+			var newCartValue = Number(localStorage.getItem('cartCount')) + 1;
+			localStorage.setItem('cartCount', newCartValue);
+			console.log(localStorage.getItem('cartCount'));
+			document.getElementById("numberOfCartItems").innerHTML
+			= "Items: "+localStorage.getItem('cartCount');
+
 	} else if(!ischecked_color & !ischecked_filling) {
 		// if neither filling radio and color radio is checked, alert the user
 		alert("Please choose color and filling.");

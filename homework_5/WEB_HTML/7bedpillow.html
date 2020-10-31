@@ -39,21 +39,18 @@
 
 <div id="contents">
 	<div class="centered-content">
-		<h2>comfy pillow</h2>
-	</div>
-	<div class="content">
-    	<div class="image-text">    
-        	<img alt="pillow1" id="pillowimage" src="bedpillow1afterschool.jpg"
-           width="100%" height="100%">
-           <br></br>
-    	</div>
-  	</div>
-
-  <div id="addtocart">
-      <p>$$$</p>
-    <!-- clicking "add to cart" calls JS function that opens popup -->
-	<button onclick="openPopup()" id="myBtn">add to cart</button>
+	   <h2>comfy pillow</h2>
   </div>
+	     <div class="product-pillow1" data-name="comfy pillow" data-price="10">
+        	<img alt="pillow1" id="pillowimage" src="bedpillow1afterschool.jpg"
+          width="100%" height="100%">
+          <div id="addtocart">
+            <p>$$$</p>
+  <!-- clicking "add to cart" calls JS function that opens popup -->
+            <!--<input type="number" class="count" value="1" />-->
+            <button onclick="openPopup()" id="myBtn">add to cart</button>
+          </div>
+      </div>
   
 
 	<!-- the popup -->
@@ -69,6 +66,7 @@
     <!-- popup will grab value of color and filling radio buttons and show them -->
     	<div id="colorresult"></div></p>
     	<div id="fillingresult"></div></p>
+      <div id="numberOfCartItems"></div></p>
   </div>
 </div>
       

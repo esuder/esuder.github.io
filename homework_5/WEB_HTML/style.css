@@ -24,6 +24,11 @@ header a:hover {
 
 /*CART AND BACK BUTTONS*/
 
+.cart {
+  box-shadow: 0 0 5px #DDD;
+  padding: 20px;
+}
+
 #cart {
 	text-align: center;
 	float:right;
