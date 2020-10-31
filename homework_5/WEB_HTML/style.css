@@ -224,3 +224,8 @@ header a:hover {
   clear: both;
   display: table;
 }
+
+/* make class block display as block on new line */
+.block {
+      display: block;
+   }

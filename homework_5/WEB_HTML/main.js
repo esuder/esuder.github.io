@@ -4,14 +4,20 @@ function goBack() {
   window.history.back();
 }
 
+//CHANGE COLOR OF PREVIEW IMAGE FROM RADIO INPUT
+var fillingResult = document.getElementsByName('filling'); 
+var colorResult = document.getElementsByName('color'); 
+
+function changeColor(){
+	console.log("peepee");
+}
+
 //ADD TO CART POPUP
 
 var ischecked_filling = false;
 var ischecked_color = false;
 
 function openPopup() {
-	var fillingResult = document.getElementsByName('filling'); 
-	var colorResult = document.getElementsByName('color'); 
 	// check if filling radio is checked
 	for ( var i = 0; i < fillingResult.length; i++) {
     	if(fillingResult[i].checked) {
