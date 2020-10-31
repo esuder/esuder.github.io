@@ -46,8 +46,6 @@ function openPopup() {
 		if(colorResult[i].checked) {
 		document.getElementById("colorresult").innerHTML
 			= "Color: "+colorResult[i].value;
-		document.getElementById("cartmessage").innerHTML
-			= "Item has been added to cart!"
 		}
 	}
 
