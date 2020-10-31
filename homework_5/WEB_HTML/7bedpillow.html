@@ -42,13 +42,12 @@
 		<h2>comfy pillow</h2>
 	</div>
 	<div class="content">
-
-    <div class="image-text">    
-        <img alt="pillow1" src="bedpillow1.jpg"
+    	<div class="image-text">    
+        	<img alt="pillow1" src="bedpillow1.jpg"
            width="100%" height="100%">
            <br></br>
-    </div>
-  </div>
+    	</div>
+  	</div>
 
   <div id="addtocart">
       <p>$$$</p>
@@ -63,49 +62,50 @@
   <div class="modal-content">
     <!-- clicking X calls JS function that closes popup -->
     <span onclick="openSpan()" class="close">&times;</span>
-    <p>item has been added to cart!
-    	<br>
-    	<a href="5cart.html">view cart</a></p>
+    	<div id="cartmessage"></div></p>
+    	<!--<p>Item has been added to cart!
+    	<br><br>
+    	<a href="5cart.html">view cart</a> -->
+    <!-- popup will grab value of color and filling radio buttons and show them -->
+    	<div id="colorresult"></div></p>
+    	<div id="fillingresult"></div></p>
   </div>
 </div>
       
   <br>
 
+  <form name="pillowOptions">
   <!-- color choice -->
-  <div class="content">
-		<section class="colors">
-          	<span>Color Choice</span>
-          		<br></br>
-          	<input type="radio" name="color" id="special" value="special">
-         	<label for="After School Special">After School Special</label>
-         		<br></br>
-        	<input type="radio" name="color" id="haze" value="haze">
-        	<label for="Morning Haze">Morning Haze</label>
-        		<br></br>
-        	<input type="radio" name="color" id="denim" value="denim">
-        	<label for="Cozy Denim">Cozy Denim</label>
-         	 	<br></br>
-        	<input type="radio" name="color" id="rainy" value="rainy">
-       	   <label for="Rainy Day">Rainy Day</label>
-        </section>
-        		<br></br>
+  	<form name="colorform">
+        <span>Color Choice</span>
+          	<br></br>
+        <input type="radio" name="color" id="special" value="After School Special">
+        <label for="After School Special">After School Special</label>
+         		
+       	<input type="radio" name="color" id="haze" value="Morning Haze">
+       	<label for="Morning Haze">Morning Haze</label>
+        	
+        <input type="radio" name="color" id="denim" value="Cozy Denim">
+        <label for="Cozy Denim">Cozy Denim</label>
+         	
+        <input type="radio" name="color" id="rainy" value="Rainy Day">
+       	<label for="Rainy Day">Rainy Day</label>
+    </form>
+        	<br></br>
   <!-- filling choice -->
-    	<section class="fillings">
-          	<span>Filling Choice</span>
-          		<br></br>
-          	<input type="radio" name="filling" id="down" value="down">
-         	<label for="Duck Down">Duck Down</label>
-         		<br></br>
-        	<input type="radio" name="filling" id="blend" value="blend">
-        	<label for="Hypoallergenic Poly-blend">Hypoallergenic Poly-blend</label>
-        		<br></br>
-        	<input type="radio" name="filling" id="foam" value="foam">
-        	<label for="Memory Foam">Memory Foam</label>
-        </section>
-	</div>
+  	<form name="fillingform">
+        <span>Filling Choice</span>
+        	<br></br>
+        <input type="radio" name="filling" id="down" value="Duck Down">
+        <label for="Duck Down">Duck Down</label>
 
-	</div>
-</div>
+       	<input type="radio" name="filling" id="blend" value="Hypoallergenic Poly-blend">
+        <label for="Hypoallergenic Poly-blend">Hypoallergenic Poly-blend</label>
+
+        <input type="radio" name="filling" id="foam" value="Memory Foam">
+        <label for="Memory Foam">Memory Foam</label>
+	</form>
+</form>
 
 </body>
 
