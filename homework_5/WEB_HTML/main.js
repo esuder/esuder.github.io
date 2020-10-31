@@ -57,7 +57,7 @@ function openPopup() {
 			var newCartValue = Number(localStorage.getItem('cartCount')) + 1;
 			localStorage.setItem('cartCount', newCartValue);
 			console.log(localStorage.getItem('cartCount'));
-			document.getElementById("numberOfCartItems").innerHTML
+			document.getElementById("cart-qty").innerHTML
 			= localStorage.getItem('cartCount');
 
 	} else if(!ischecked_color & !ischecked_filling) {
