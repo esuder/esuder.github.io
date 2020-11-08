@@ -13,13 +13,13 @@ function changeColor(){
     	if(colorResults[i].checked) {
     	console.log(colorResults[i].value);
         	if (colorResults[i].value === "After School Special"){
-        		document.getElementById("pillowimage").src="bedpillow1afterschool.jpg";
+        		document.getElementById("pillowimage").src="assets/bedpillow1afterschool.jpg";
 			} else if (colorResults[i].value === "Morning Haze"){
-				document.getElementById("pillowimage").src="bedpillow1morninghaze.jpg";
+				document.getElementById("pillowimage").src="assets/bedpillow1morninghaze.jpg";
 			} else if (colorResults[i].value === "Cozy Denim"){
-				document.getElementById("pillowimage").src="bedpillow1cozydenim.jpg";
+				document.getElementById("pillowimage").src="assets/bedpillow1cozydenim.jpg";
 			} else if (colorResults[i].value === "Rainy Day"){
-				document.getElementById("pillowimage").src="bedpillow1rainyday.jpg";
+				document.getElementById("pillowimage").src="assets/bedpillow1rainyday.jpg";
 			}
 		}
 	}
