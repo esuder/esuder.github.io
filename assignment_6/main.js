@@ -3,6 +3,23 @@ var cartListNewItem = [];
 
 //CART
 
+function removeCartObject() {
+	let productNumbers = localStorage.getItem('cartNumbers');
+    //convert string of productNumbers into Int
+	productNumbers = parseInt(productNumbers);
+    
+    //if something is in the cart
+	if(productNumbers) {
+		localStorage.setItem('cartNumbers', productNumbers-1);
+		document.querySelector('.cart-qty span').textContent = productNumbers - 1;
+	}
+
+	var storedCartList = JSON.parse(localStorage.getItem('cartItems'));
+	storedCartList.shift();
+	localStorage.setItem('cartItems', JSON.stringify(storedCartList));
+	window.location.reload();
+}
+
 //this function is to keep localStorage value of cartNumbers on screen after page refresh
 function onLoadCart() {
       let productNumbers = localStorage.getItem('cartNumbers');
