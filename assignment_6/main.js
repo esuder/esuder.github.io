@@ -1,19 +1,14 @@
+
+var cartList = [];
+
 //CART
 
-let products = [
-	{
-		name: 'comfy pillow',
-		tag: 'comfypillow',
-		price: 5,
-		inCart: 0
-	}
-]
-
-//this function is to keep localStorage values on screen after page refresh
+//this function is to keep localStorage value of cartNumbers on screen after page refresh
 function onLoadCartNumbers() {
       let productNumbers = localStorage.getItem('cartNumbers');
       if(productNumbers) {
         document.querySelector('.cart-qty span').textContent = productNumbers;
+		document.querySelector('.itemsInCart span').textContent = productNumbers;
       }
     }
 //load the above function every time the window is loaded
@@ -35,6 +30,16 @@ function cartNumbers() {
 	}
 }
 
+//add to array if add to cart is clicked
+function cartItems() {
+//create object with color and filling information and add to cartList array
+	let listOfItems = localStorage.getItem('list');
+	console.log("this is cartlist array string:"+JSON.stringify(cartList));
+	localStorage.setItem('list', JSON.stringify(cartList));
+	console.log("this is list of items:"+listOfItems);
+	//document.querySelector('.myCartList span').textContent = listOfItems;
+}
+
 //BACK BUTTON
 
 function goBack() {
@@ -48,7 +53,6 @@ var colorResults = document.getElementsByName('color');
 function changeColor(){
 	for ( var i = 0; i < colorResults.length; i++) {
     	if(colorResults[i].checked) {
-    	console.log(colorResults[i].value);
         	if (colorResults[i].value === "After School Special"){
         		document.getElementById("pillowimage").src="bedpillow1afterschool.jpg";
 			} else if (colorResults[i].value === "Morning Haze"){
@@ -88,7 +92,11 @@ function openPopup() {
 	if(ischecked_color & ischecked_filling) {
       	  	modal = document.getElementById("myModal");
 			modal.style.display = "block";
+			cartList.push({
+				"Color" : colorResults[i].value,
+				"Filling" : fillingResults[i].value});
 			cartNumbers();
+			cartItems();
 
 	} else if(!ischecked_color & !ischecked_filling) {
 		// if neither filling radio and color radio is checked, alert the user
