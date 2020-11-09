@@ -1,24 +1,29 @@
 
-var cartList = [];
+var cartListNewItem = [];
 
 //CART
 
 //this function is to keep localStorage value of cartNumbers on screen after page refresh
-function onLoadCartNumbers() {
+function onLoadCart() {
       let productNumbers = localStorage.getItem('cartNumbers');
+      let storedCartList = localStorage.getItem('cartItems');
       if(productNumbers) {
         document.querySelector('.cart-qty span').textContent = productNumbers;
-		document.querySelector('.itemsInCart span').textContent = productNumbers;
+      }
+      if(storedCartList != null && document.URL.includes("5cart.html")) {
+        document.querySelector('.myCartList span').textContent = storedCartList;
       }
     }
 //load the above function every time the window is loaded
-window.onload = onLoadCartNumbers;
+window.onload = onLoadCart;
 
 //add number every time add to cart is clicked
-function cartNumbers() {
+//also add color/filling info to array saved in localStorage
+function addCartEntry() {
 	let productNumbers = localStorage.getItem('cartNumbers');
     //convert string of productNumbers into Int
 	productNumbers = parseInt(productNumbers);
+    
     //if something is in the cart
 	if(productNumbers) {
 		localStorage.setItem('cartNumbers', productNumbers+1);
@@ -28,16 +33,19 @@ function cartNumbers() {
 		//update all instances of .cart-qty span with the new number
 		document.querySelector('.cart-qty span').textContent = 1;
 	}
-}
 
-//add to array if add to cart is clicked
-function cartItems() {
-//create object with color and filling information and add to cartList array
-	let listOfItems = localStorage.getItem('list');
-	console.log("this is cartlist array string:"+JSON.stringify(cartList));
-	localStorage.setItem('list', JSON.stringify(cartList));
-	console.log("this is list of items:"+listOfItems);
-	//document.querySelector('.myCartList span').textContent = listOfItems;
+	//create object with color and filling information and add to storedCartList array
+	var storedCartList = JSON.parse(localStorage.getItem('cartItems'));
+    if(storedCartList == null) storedCartList = [];
+    var newitem = {
+    	'Item Number': localStorage.getItem('cartNumbers'),
+		'Color' : chosenColor,
+		'Filling' : chosenFilling
+    };
+    localStorage.setItem('newitem', JSON.stringify(newitem));
+    // Save cartItems back to local storage
+    storedCartList.push(newitem);
+    localStorage.setItem('cartItems', JSON.stringify(storedCartList));
 }
 
 //BACK BUTTON
@@ -70,12 +78,15 @@ function changeColor(){
 
 var ischecked_filling = false;
 var ischecked_color = false;
+let chosenColor = "";
+let chosenFilling = "";
 
 function openPopup() {
 	// check if filling radio is checked
 	for ( var i = 0; i < fillingResults.length; i++) {
     	if(fillingResults[i].checked) {
         	ischecked_filling = true;
+        	chosenFilling = fillingResults[i].value;
 			break;
    		 }
 	}
@@ -83,6 +94,7 @@ function openPopup() {
 	for ( var i = 0; i < colorResults.length; i++) {
     	if(colorResults[i].checked) {
         	ischecked_color = true;
+        	chosenColor = colorResults[i].value;
 			break;
    		 }
 	}
@@ -92,11 +104,8 @@ function openPopup() {
 	if(ischecked_color & ischecked_filling) {
       	  	modal = document.getElementById("myModal");
 			modal.style.display = "block";
-			cartList.push({
-				"Color" : colorResults[i].value,
-				"Filling" : fillingResults[i].value});
-			cartNumbers();
-			cartItems();
+
+			addCartEntry();
 
 	} else if(!ischecked_color & !ischecked_filling) {
 		// if neither filling radio and color radio is checked, alert the user
