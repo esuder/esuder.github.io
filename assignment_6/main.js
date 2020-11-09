@@ -1,6 +1,26 @@
 
 var cartListNewItem = [];
 
+//this function is to keep localStorage value of cartNumbers on screen after page refresh
+function onLoadCart() {
+      let productNumbers = localStorage.getItem('cartNumbers');
+      let storedCartList = localStorage.getItem('cartItems');
+      if(productNumbers) {
+        document.querySelector('.cart-qty span').textContent = productNumbers;
+      }
+      if(productNumbers && document.URL.includes("5cart.html")) {
+        document.querySelector('.items-in-cart span').textContent = productNumbers;
+        //update max value of input with actual number of cart items
+        var input = document.getElementById("cartItemToDelete");
+        input.setAttribute("max",productNumbers);
+      } 
+      if(storedCartList != null && document.URL.includes("5cart.html")) {
+        document.querySelector('.myCartList span').textContent = storedCartList;
+      }
+    }
+//load the above function every time the window is loaded
+window.onload = onLoadCart;
+
 //CART
 
 function removeCartObject() {
@@ -13,26 +33,29 @@ function removeCartObject() {
 		localStorage.setItem('cartNumbers', productNumbers-1);
 		document.querySelector('.cart-qty span').textContent = productNumbers - 1;
 	}
-
 	var storedCartList = JSON.parse(localStorage.getItem('cartItems'));
-	storedCartList.shift();
+	storedCartList.pop();
 	localStorage.setItem('cartItems', JSON.stringify(storedCartList));
 	window.location.reload();
 }
 
-//this function is to keep localStorage value of cartNumbers on screen after page refresh
-function onLoadCart() {
-      let productNumbers = localStorage.getItem('cartNumbers');
-      let storedCartList = localStorage.getItem('cartItems');
-      if(productNumbers) {
-        document.querySelector('.cart-qty span').textContent = productNumbers;
-      }
-      if(storedCartList != null && document.URL.includes("5cart.html")) {
-        document.querySelector('.myCartList span').textContent = storedCartList;
-      }
-    }
-//load the above function every time the window is loaded
-window.onload = onLoadCart;
+function removeCartObjectbyNumber() {
+	let productNumbers = localStorage.getItem('cartNumbers');
+    //convert string of productNumbers into Int
+	productNumbers = parseInt(productNumbers);
+    
+    //if something is in the cart
+	if(productNumbers) {
+		localStorage.setItem('cartNumbers', productNumbers-1);
+		document.querySelector('.cart-qty span').textContent = productNumbers - 1;
+	}
+
+	var storedCartList = JSON.parse(localStorage.getItem('cartItems'));
+	var inputNumber = document.getElementById("cartItemToDelete").value;
+	storedCartList.splice(inputNumber-1, 1);
+	localStorage.setItem('cartItems', JSON.stringify(storedCartList));
+	window.location.reload();
+}
 
 //add number every time add to cart is clicked
 //also add color/filling info to array saved in localStorage
@@ -55,7 +78,8 @@ function addCartEntry() {
 	var storedCartList = JSON.parse(localStorage.getItem('cartItems'));
     if(storedCartList == null) storedCartList = [];
     var newitem = {
-    	'Item Number': localStorage.getItem('cartNumbers'),
+    	'Product' : 'big ole comfy pillow',
+    	'Price' : '$$',
 		'Color' : chosenColor,
 		'Filling' : chosenFilling
     };
