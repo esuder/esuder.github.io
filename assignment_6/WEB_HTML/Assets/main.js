@@ -1,3 +1,40 @@
+//CART
+
+let products = [
+	{
+		name: 'comfy pillow',
+		tag: 'comfypillow',
+		price: 5,
+		inCart: 0
+	}
+]
+
+//this function is to keep localStorage values on screen after page refresh
+function onLoadCartNumbers() {
+      let productNumbers = localStorage.getItem('cartNumbers');
+      if(productNumbers) {
+        document.querySelector('.cart-qty span').textContent = productNumbers;
+      }
+    }
+//load the above function every time the window is loaded
+window.onload = onLoadCartNumbers;
+
+//add number every time add to cart is clicked
+function cartNumbers() {
+	let productNumbers = localStorage.getItem('cartNumbers');
+    //convert string of productNumbers into Int
+	productNumbers = parseInt(productNumbers);
+    //if something is in the cart
+	if(productNumbers) {
+		localStorage.setItem('cartNumbers', productNumbers+1);
+		document.querySelector('.cart-qty span').textContent = productNumbers + 1;
+	} else {
+		localStorage.setItem('cartNumbers', 1);
+		//update all instances of .cart-qty span with the new number
+		document.querySelector('.cart-qty span').textContent = 1;
+	}
+}
+
 //BACK BUTTON
 
 function goBack() {
@@ -30,8 +67,6 @@ function changeColor(){
 var ischecked_filling = false;
 var ischecked_color = false;
 
-localStorage.setItem('cartCount', 0);
-
 function openPopup() {
 	// check if filling radio is checked
 	for ( var i = 0; i < fillingResults.length; i++) {
@@ -53,12 +88,7 @@ function openPopup() {
 	if(ischecked_color & ischecked_filling) {
       	  	modal = document.getElementById("myModal");
 			modal.style.display = "block";
-			//convert to number. Add 1 to number every time Add to Cart is clicked
-			var newCartValue = Number(localStorage.getItem('cartCount')) + 1;
-			localStorage.setItem('cartCount', newCartValue);
-			console.log(localStorage.getItem('cartCount'));
-			document.getElementById("cart-qty").innerHTML
-			= localStorage.getItem('cartCount');
+			cartNumbers();
 
 	} else if(!ischecked_color & !ischecked_filling) {
 		// if neither filling radio and color radio is checked, alert the user
